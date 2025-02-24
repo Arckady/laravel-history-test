@@ -40,6 +40,15 @@ services:
     restart: always
     container_name: ${APP_NAME}-php-cli
 
+  node-cli:
+    container_name: ${APP_NAME}-node-cli
+    build:
+      context: ./docker/node-cli
+    volumes:
+      - ./project:/project
+    ports:
+      - "5174:5174"
+
   db:
     container_name: ${APP_NAME}-db
     image: mariadb:10.3

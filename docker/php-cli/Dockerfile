@@ -7,6 +7,9 @@ RUN apt-get update && apt-get install -y \
 RUN apt-get update \
     && docker-php-ext-install pdo pdo_mysql zip
     
+RUN apt-get -y update
+RUN apt-get -y install git
+    
 RUN apt-get update && apt-get install -y unzip \
     && pecl install xdebug \
     && docker-php-ext-enable xdebug

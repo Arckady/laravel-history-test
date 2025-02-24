@@ -1,5 +1,5 @@
 init: docker-down \
-	docker-pull docker-build docker-up \
+	docker-pull docker-build yarn-install docker-up \
 	app-composer-install
 up: docker-up
 down: docker-down
@@ -29,3 +29,6 @@ app-composer-install:
 
 app-migrations:
 	cd project && docker compose run --rm php-cli bin/console d:m:m --no-interaction
+
+yarn-install:
+	cd project && docker-compose run --rm node-cli yarn install
