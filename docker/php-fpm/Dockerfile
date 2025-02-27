@@ -16,4 +16,6 @@ WORKDIR /project
 RUN chown -R develop:develop /project
 USER develop
 
+ADD docker-php-ext-xdebug.ini /usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini
+
 CMD ["php-fpm"]

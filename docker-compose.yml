@@ -17,12 +17,13 @@ services:
     build:
       context: ./docker/php-fpm
     environment:
-      XDEBUG_CONFIG: "remote_host=172.18.18.1 remote_enable=1 remote_autostart=off  remote_port=9008"
       PHP_IDE_CONFIG: "serverName=first"
     volumes:
       - ./project:/project
       # при изменении настроек в project.ini нужен `make restart`
       - ./docker/php-fpm/project.ini:/usr/local/etc/php/conf.d/project.ini
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
     container_name: ${APP_NAME}-php-fpm
     restart: always
     depends_on:
