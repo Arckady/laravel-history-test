@@ -21,7 +21,7 @@ docker-build:
 docker-build-no-pull:
 	docker compose build
 
-app-php-cli-bash:
+cli:
 	cd project && docker compose run --rm php-cli bash
 
 app-composer-install:

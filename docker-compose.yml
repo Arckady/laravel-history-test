@@ -50,6 +50,12 @@ services:
     ports:
       - "5174:5174"
 
+  mailer:
+    image: schickling/mailcatcher
+    container_name: ${APP_NAME}-mailer
+    ports:
+      - "1090:1080"
+
   db:
     container_name: ${APP_NAME}-db
     image: mariadb:10.3
